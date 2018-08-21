@@ -16,7 +16,7 @@ def getURL(year, month, filename):
             str(year) + '/' + str(month).zfill(2) + '/' + filename)
 
 
-def download(start_year, start_month, end_year, end_month, output_path):
+def download(stock, start_year, start_month, end_year, end_month, output_path):
     cur_year = start_year
     cur_month = start_month
     while cur_year < end_year or cur_month < end_month:
@@ -31,7 +31,7 @@ def download(start_year, start_month, end_year, end_month, output_path):
             if os.path.exists(unzip_save_path):
                 print('{} is already downloaded.'.format(filename))
                 # write file
-                toJSON(unzip_save_path, output_path)
+                toJSON(stock, unzip_save_path, output_path)
                 continue
 
             print('{} is downloading...'.format(filename))
@@ -64,7 +64,7 @@ def download(start_year, start_month, end_year, end_month, output_path):
                 print('{} is downloaded and unzipped.'.format(filename))
 
                 # write file
-                toJSON(unzip_save_path, output_path)
+                toJSON(stock, unzip_save_path, output_path)
 
         # next month
         print('getting file for {}/{} is done'.format(cur_year, cur_month))

@@ -14,10 +14,11 @@ import sys
 from download import download
 
 # *** config ***
-_START_MONTH = int(sys.argv[1])
-_START_YEAR = int(sys.argv[2])
-_END_MONTH = int(sys.argv[3])
-_END_YEAR = int(sys.argv[4])
+_STOCK = sys.argv[1]
+_START_MONTH = int(sys.argv[2])
+_START_YEAR = int(sys.argv[3])
+_END_MONTH = int(sys.argv[4])
+_END_YEAR = int(sys.argv[5])
 
 print("Starting download for {:d}/{:d}-{:d}/{:d}".format(_START_MONTH,
                                                          _START_YEAR, _END_MONTH, _END_YEAR))
@@ -36,6 +37,6 @@ if os.path.isfile(output_path):
     sys.exit()
 
 # Download and format the files
-download(_START_YEAR, _START_MONTH, _END_YEAR, _END_MONTH, output_path)
+download(_STOCK, _START_YEAR, _START_MONTH, _END_YEAR, _END_MONTH, output_path)
 
 print('Done !!!')
