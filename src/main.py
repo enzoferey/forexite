@@ -23,6 +23,7 @@ print("Starting download for {:d}/{:d}-{:d}/{:d}".format(_START_MONTH,
                                                          _START_YEAR, _END_MONTH, _END_YEAR))
 
 
+# Output path calculation
 output_filename = str(_START_YEAR) + str(_START_MONTH).zfill(2) + \
     '_' + str(_END_YEAR) + str(_END_MONTH).zfill(2) + '.csv'
 output_path = '../output/' + output_filename
@@ -34,7 +35,7 @@ if os.path.isfile(output_path):
     print('Output file exist. Please try again after delete.')
     sys.exit()
 
-# start loop of download and write files
+# Download and format the files
 download(_START_YEAR, _START_MONTH, _END_YEAR, _END_MONTH, output_path)
 
 print('Done !!!')

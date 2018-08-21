@@ -22,14 +22,17 @@ def parseFactor(factor):
 
 def toJSON(input_path, output_path):
     print('Converting DATA to JSON...')
-    f = open(input_path)
-    lines = f.readlines()
+    raw = open(input_path)
+    lines = raw.readlines()
+    raw.close()
 
+    output = open(output_path, 'a')
     for line in lines:
         # parse
         factor = line.split(',')
         record = parseFactor(factor)
 
         # write
-        with open(output_path, 'a') as f:
-            f.write(record)
+        output.write(record)
+
+    output.close()
