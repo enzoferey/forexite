@@ -19,7 +19,7 @@ def getURL(year, month, filename):
 def download(stock, start_year, start_month, end_year, end_month, output_path):
     cur_year = start_year
     cur_month = start_month
-    while cur_year < end_year or cur_month < end_month:
+    while cur_year < end_year or cur_month <= end_month:
         for i in range(1, 32):
             # get filename
             filename = getFilename(i, cur_month, cur_year)

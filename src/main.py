@@ -17,15 +17,15 @@ from download import download
 _STOCK = sys.argv[1]
 _START_MONTH = int(sys.argv[2])
 _START_YEAR = int(sys.argv[3])
-_END_MONTH = int(sys.argv[4])
-_END_YEAR = int(sys.argv[5])
+_END_MONTH = _START_MONTH if len(sys.argv) < 5 else int(sys.argv[4])
+_END_YEAR = _START_YEAR if len(sys.argv) < 5 else int(sys.argv[5])
 
 print("Starting download for {:d}/{:d}-{:d}/{:d}".format(_START_MONTH,
                                                          _START_YEAR, _END_MONTH, _END_YEAR))
 
 
 # Output path calculation
-output_filename = str(_START_YEAR) + str(_START_MONTH).zfill(2) + \
+output_filename = str(_START_YEAR) + str(_START_MONTH).zfill(2) if len(sys.argv) < 5 else str(_START_YEAR) + str(_START_MONTH).zfill(2) + \
     '_' + str(_END_YEAR) + str(_END_MONTH).zfill(2)
 output_path = '../output/' + output_filename
 

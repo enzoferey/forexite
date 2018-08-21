@@ -35,7 +35,6 @@ def parseFactor(filter_stock, factor):
 
 
 def toCSV(parsed):
-    print('Converting DATA to CSV...')
     global dataCSV
 
     record = ",".join(parsed)
@@ -43,7 +42,6 @@ def toCSV(parsed):
 
 
 def toJSON(parsed):
-    print('Converting DATA to JSON...')
     global dataJSON
 
     record = {
