@@ -5,10 +5,12 @@ def parseFactor(factor):
     # convert datetime format
     year = factor[1][0:4]
     month = factor[1][4:6]
-    date = factor[1][6:8]
+    day = factor[1][6:8]
+    date = year + '-' + month + '-' + day
+
     hour = factor[2][0:2]
-    min = factor[2][2:4]
-    datetime = year + '-' + month + '-' + date + ' ' + hour + ':' + min
+    minute = factor[2][2:4]
+    time = hour + ':' + minute
 
     # price
     open_price = factor[3]
@@ -16,7 +18,7 @@ def parseFactor(factor):
     low_price = factor[5]
     close_price = factor[6]
 
-    return stock + ',' + datetime + ',' + open_price + ',' \
+    return stock + ',' + date + "," + time + ',' + open_price + ',' \
         + high_price + ',' + low_price + ',' + close_price
 
 
