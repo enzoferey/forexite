@@ -1,3 +1,3 @@
 # forexite
 
-Download historical data from forexite, and output csv with converting my table format.
+Download historical data from [Forexite](https://www.forexite.com/).
