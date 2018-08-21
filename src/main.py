@@ -26,13 +26,13 @@ print("Starting download for {:d}/{:d}-{:d}/{:d}".format(_START_MONTH,
 
 # Output path calculation
 output_filename = str(_START_YEAR) + str(_START_MONTH).zfill(2) + \
-    '_' + str(_END_YEAR) + str(_END_MONTH).zfill(2) + '.csv'
+    '_' + str(_END_YEAR) + str(_END_MONTH).zfill(2)
 output_path = '../output/' + output_filename
 
 print("Output will be writen to: {}".format(output_path))
 
 # Check file doesn't exist
-if os.path.isfile(output_path):
+if os.path.isfile(output_path + ".csv") or os.path.isfile(output_path + ".json"):
     print('Output file exist. Please try again after delete.')
     sys.exit()
 

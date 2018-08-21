@@ -3,7 +3,7 @@ import urllib.request
 import urllib.error
 import zipfile
 
-from toJSON import toJSON
+import parseData
 
 
 def getFilename(day, month, year):
@@ -31,7 +31,7 @@ def download(stock, start_year, start_month, end_year, end_month, output_path):
             if os.path.exists(unzip_save_path):
                 print('{} is already downloaded.'.format(filename))
                 # write file
-                toJSON(stock, unzip_save_path, output_path)
+                parseData.parse(stock, unzip_save_path, output_path)
                 continue
 
             print('{} is downloading...'.format(filename))
@@ -64,11 +64,14 @@ def download(stock, start_year, start_month, end_year, end_month, output_path):
                 print('{} is downloaded and unzipped.'.format(filename))
 
                 # write file
-                toJSON(stock, unzip_save_path, output_path)
+                parseData.parse(stock, unzip_save_path, output_path)
 
         # next month
-        print('getting file for {}/{} is done'.format(cur_year, cur_month))
+        print('{}/{} done √'.format(cur_year, cur_month))
         cur_month += 1
         if cur_month > 12:
             cur_month = 1
             cur_year += 1
+
+    # Finally dump all the JSON
+    parseData.dump(stock, output_path)
